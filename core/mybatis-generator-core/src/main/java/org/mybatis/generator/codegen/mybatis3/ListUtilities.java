@@ -53,4 +53,14 @@ public class ListUtilities {
         }
         return filteredList;
     }
+
+    public static List<IntrospectedColumn> removeSomeColumns(List<IntrospectedColumn> columns) {
+        List<IntrospectedColumn> filteredList = new ArrayList<IntrospectedColumn>();
+        for (IntrospectedColumn ic : columns) {
+            if (!"update_time".equals(ic.getActualColumnName()) && !"create_time".equals(ic.getActualColumnName())) {
+                filteredList.add(ic);
+            }
+        }
+        return filteredList;
+    }
 }
